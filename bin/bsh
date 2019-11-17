@@ -1,0 +1,6 @@
+#!/bin/sh
+cd `dirname $0`/.. || exit 1
+CLASSPATH=classes:$CLASSPATH
+CLASSPATH=`echo jpos-2.1.1-SNAPSHOT.jar lib/*.jar | tr ' ' ':'`:$CLASSPATH
+exec java -Dcom.sun.management.jmxremote  -cp $CLASSPATH bsh.Interpreter $*
+
