@@ -9,8 +9,9 @@ ENV JAVA_OPTS=$JAVA_OPTS
 WORKDIR /home/appuser/jpos
 RUN pwd
 RUN ls -la
+COPY . .
 EXPOSE 8000
 CMD java -server \
     -Xmx1G \
     -Dcom.sun.management.jmxremote \
-    -jar /home/appuser/jpos/jpos-2.1.1-SNAPSHOT.jar --pid=jpos.pid "$@"
+    -jar ./jpos-2.1.1-SNAPSHOT.jar --pid=jpos.pid "$@"
