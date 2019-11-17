@@ -7,6 +7,8 @@ USER appuser
 ARG JAVA_OPTS
 ENV JAVA_OPTS=$JAVA_OPTS
 WORKDIR /home/appuser/jpos
+RUN chown -R appuser:appuser /jpos
+RUN chmod 777 /jpos
 RUN pwd
 RUN ls -la
 COPY . .
